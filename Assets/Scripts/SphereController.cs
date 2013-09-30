@@ -4,6 +4,8 @@ using System.Collections;
 public class SphereController : MonoBehaviour {
 	public float speed = 1.0f;
 	
+	Vector3 dir = Vector3.zero;
+	
 	// Use this for initialization
 	void Start () {
 	
@@ -23,5 +25,20 @@ public class SphereController : MonoBehaviour {
 		if(Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.A)){
 			transform.Translate(Vector3.left*Time.deltaTime*speed);
 		}
+		
+		if(Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer){
+			dir = Vector3.zero;
+			dir.z = Input.acceleration.y;
+			dir.x = Input.acceleration.x;
+		
+			if(dir.sqrMagnitude > 1){
+				dir.Normalize();
+			}
+			transform.Translate(dir * 0.3f);
+		}
+	}
+	
+	void FixedUpdate(){
+
 	}
 }
