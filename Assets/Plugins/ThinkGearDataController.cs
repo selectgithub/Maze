@@ -12,6 +12,8 @@ using NeuroSky.ThinkGear;
 using NeuroSky.ThinkGear.Algorithms;
 
 public class ThinkGearDataController : MonoBehaviour {
+	public static double FAMIL_BASELINE;
+	public static double EFF_BASELINE;
 	
 	public delegate void DataChangeDelegate(double value);
 	public delegate void IntDataChangeDelegate(int value);
@@ -111,22 +113,10 @@ public class ThinkGearDataController : MonoBehaviour {
 					
                         if (mental_eff_first) {
                             mental_eff_first = false;
-							mental_eff_baseline = mental_eff_cur;
-					Debug.Log("MentalBaseLine:"+mental_eff_baseline);
+							EFF_BASELINE = mental_eff_baseline = mental_eff_cur;
+							Debug.Log("MentalBaseLine:"+mental_eff_baseline);
                         }
-                        else {
-                            
-                            mental_eff_change = calcPercentChange(mental_eff_baseline, mental_eff_cur);
-                            if (mental_eff_change > 500.0 || mental_eff_change < -500.0) {
-						
-                            }
-                            else {
-                                Debug.Log("Mental:"+mental_eff_change);
-								if(MentalEffortChangeEvent != null){
-									MentalEffortChangeEvent(mental_eff_change);
-									}
-                            }
-                        }
+				
 				    if(MentalEffortEvent != null){
 						MentalEffortEvent(mental_eff_cur);
 					}
@@ -136,21 +126,10 @@ public class ThinkGearDataController : MonoBehaviour {
 				task_famil_cur = BitConverter.ToDouble(row.Data,0);
                         if (task_famil_first) {
                             task_famil_first = false;
-							task_famil_baseline = task_famil_cur;
+							FAMIL_BASELINE = task_famil_baseline = task_famil_cur;
 							Debug.Log("FamilBaseLine:"+task_famil_baseline);
                         }
-                        else {
-                            task_famil_change = calcPercentChange(task_famil_baseline, task_famil_cur);
-                            if (task_famil_change > 500.0 || task_famil_change < -500.0) {
-						
-                            }
-                            else {
-								Debug.Log("Famil:"+task_famil_change); 
-									if(TaskFamiliarityChangeEvent != null){
-										TaskFamiliarityChangeEvent(task_famil_change);
-									}
-								}
-                        }
+                        
 				if(TaskFamiliarityEvent != null){
 					TaskFamiliarityEvent(task_famil_cur);
 				}

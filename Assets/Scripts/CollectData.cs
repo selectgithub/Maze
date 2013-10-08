@@ -14,21 +14,23 @@ public class CollectData : MonoBehaviour {
 	void Awake(){
 		dataController = GameObject.Find("ThinkGearDataController").GetComponent<ThinkGearDataController>();
 		dataController.MentalEffortEvent += OnMentalEffortReceived;
-		dataController.MentalEffortChangeEvent += OnMentalEffortChangeReceived;
+		//dataController.MentalEffortChangeEvent += OnMentalEffortChangeReceived;
 		dataController.TaskFamiliarityEvent += OnTaskFamiliarityReceived;
-		dataController.TaskFamiliarityChangeEvent += OnTaskFamiliarityChangeReceived;
+		//dataController.TaskFamiliarityChangeEvent += OnTaskFamiliarityChangeReceived;
 	}
 
 	// Use this for initialization
 	void Start () {
 		NSFileWriter.InitFile(level);
+		NSFileWriter.Write(ThinkGearDataController.EFF_BASELINE,ThinkGearDataController.FAMIL_BASELINE);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(isNewFamil && isNewMental){
-			NSFileWriter.Write(mental,mentalChange,famil,familChange);
 			isNewFamil = isNewMental = false;
+			//NSFileWriter.Write(mental,mentalChange,famil,familChange);
+			NSFileWriter.Write(mental,famil);
 		}
 	}
 	
@@ -50,9 +52,9 @@ public class CollectData : MonoBehaviour {
 	
 	void OnDestroy(){
 		dataController.MentalEffortEvent -= OnMentalEffortReceived;
-		dataController.MentalEffortChangeEvent -= OnMentalEffortChangeReceived;
+		//dataController.MentalEffortChangeEvent -= OnMentalEffortChangeReceived;
 		dataController.TaskFamiliarityEvent -= OnTaskFamiliarityReceived;
-		dataController.TaskFamiliarityChangeEvent -= OnTaskFamiliarityChangeReceived;
+		//dataController.TaskFamiliarityChangeEvent -= OnTaskFamiliarityChangeReceived;
 		NSFileWriter.CloseFile();
 	}
 	

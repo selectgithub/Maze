@@ -22,189 +22,175 @@ User locale: zh-CN
 System locale: zh-CN
 
 Running processes:
-taskhost.exe (2416)
-    path: C:\Windows\system32\taskhost.exe
-    company:  Microsoft Corporation
-    product:  Microsoft? Windows? Operating System
-    filedesc: Host Process for Windows Tasks
-    filever:  6.1.7601.18010
-    prodver:  6.1.7601.18010
-Dwm.exe (2556)
+Dwm.exe (2284)
     path: C:\Windows\system32\Dwm.exe
     company:  Microsoft Corporation
     product:  Microsoft? Windows? Operating System
     filedesc: Desktop Window Manager
     filever:  6.1.7600.16385
     prodver:  6.1.7600.16385
-Explorer.EXE (2564)
+Explorer.EXE (2316)
     path: C:\Windows\Explorer.EXE
     company:  Microsoft Corporation
     product:  Microsoft? Windows? Operating System
     filedesc: Windows Explorer
     filever:  6.1.7601.17567
     prodver:  6.1.7601.17567
-FetionPCTray.exe (2584)
+taskhost.exe (2364)
+    path: C:\Windows\system32\taskhost.exe
+    company:  Microsoft Corporation
+    product:  Microsoft? Windows? Operating System
+    filedesc: Host Process for Windows Tasks
+    filever:  6.1.7601.18010
+    prodver:  6.1.7601.18010
+FetionPCTray.exe (2436)
     path: c:\program files\china mobile\fetionbox\FetionPCTray.exe
     company:  China Mobile
     product:  飞信消息盒子
     filedesc: 飞信桌面托盘程序
     filever:  1.1.581.0
     prodver:  1.1.581.0
-AlipaySafeTran.exe (2592)
-    path: C:\Program Files\alipay\SafeTransaction\AlipaySafeTran.exe
-    company:  Alipay Inc. 
-    product:  SafeTransaction
-    filedesc: AlipaySafeTran
-    filever:  1.1.0.1
-    prodver:  4.2.1.0
-Alipaybsm.exe (2612)
+Alipaybsm.exe (2696)
     path: C:\Program Files\alipay\SafeTransaction\Alipaybsm.exe
     company:  Alipay Inc. 
     product:  SafeTransaction
     filedesc: Alipay Browser Safe Monitor
     filever:  1.0.0.32
     prodver:  4.2.1.0
-Energy Management.exe (3108)
+Energy Management.exe (2840)
     path: C:\Program Files\Lenovo\Energy Management\Energy Management.exe
     company:  Lenovo (Beijing) Limited
     product:  Lenovo Energy Management Software 7.0
     filedesc: Lenovo Energy Management Software 7.0
     filever:  7.0.3.1
     prodver:  7.0.3.1
-utility.exe (3116)
+utility.exe (3032)
     path: C:\Program Files\Lenovo\Energy Management\utility.exe
     company:  Lenovo(beijing) Limited
     product:  Lenovo Battery Management Software Ver 7.0
     filedesc: Lenovo Battery Management Software Ver 7.0
     filever:  7.0.3.0
     prodver:  7.0.3.0
-RtHDVCpl.exe (3144)
+RtHDVCpl.exe (3040)
     path: C:\Program Files\Realtek\Audio\HDA\RtHDVCpl.exe
     company:  Realtek Semiconductor
     product:  Realtek HD Audio Manager
     filedesc: Realtek HD Audio Manager
     filever:  1.0.0.828
     prodver:  1.0.0.828
-ThunderMobilePlatform.exe (3576)
-    path: C:\Program Files\Thunder Network\Thunder\Program\ThunderMobilePlatform.exe
-    company:  迅雷
-    product:  迅雷移动设备数据传输通道
-    filedesc: 迅雷旗下各软件共用的移动设备数据传输通道
-    filever:  1.0.1.308
-    prodver:  1.0.1.308
-QQPMDaemon.exe (3636)
-    path: C:\Program Files\Tencent\QQPhoneManager\QQPMDaemon.exe
-    company:  腾讯公司
-    product:  腾讯手机管家
-    filedesc: 腾讯手机管家服务程序
-    filever:  2.2.100.172
-    prodver:  2.2.100.172
-tadb.exe (1656)
-    path: C:\Program Files\Tencent\QQPhoneManager\tadb.exe
-    company:  
-    product:  
-    filedesc: 
-    filever:  0.0.0.0
-    prodver:  0.0.0.0
-nvtray.exe (2124)
-    path: C:\Program Files\NVIDIA Corporation\Display\nvtray.exe
-    company:  NVIDIA Corporation
-    product:  NVIDIA Settings
-    filedesc: NVIDIA Settings
-    filever:  7.17.12.9696
-    prodver:  7.17.12.9696
-hkcmd.exe (2108)
+hkcmd.exe (3068)
     path: C:\Windows\System32\hkcmd.exe
     company:  Intel Corporation
     product:  Intel(R) Common User Interface
     filedesc: hkcmd Module
     filever:  8.15.10.2342
     prodver:  8.15.10.2342
-igfxpers.exe (2676)
+igfxpers.exe (3108)
     path: C:\Windows\System32\igfxpers.exe
     company:  Intel Corporation
     product:  Intel(R) Common User Interface
     filedesc: persistence Module
     filever:  8.15.10.2342
     prodver:  8.15.10.2342
-WPService.exe (2928)
+WPService.exe (3260)
     path: C:\Program Files\CMBCHINA\WebProtect\WPService.exe
     company:  China Merchants Bank
     product:  WebProtect
     filedesc: WebProtect
     filever:  1.0.0.1
     prodver:  1.0.0.1
-BtTray.exe (2924)
+BtTray.exe (3268)
     path: C:\Program Files\Bluetooth Suite\BtTray.exe
     company:  Qualcomm Atheros
     product:  
     filedesc: BtTray
     filever:  8.0.0.216
     prodver:  8.0.0.216
-BtvStack.exe (3252)
+BtvStack.exe (3280)
     path: C:\Program Files\Bluetooth Suite\BtvStack.exe
     company:  Qualcomm Atheros Commnucations
     product:  Bluetooth Software
     filedesc: Extension Core
     filever:  8.0.0.216
     prodver:  8.0.0.216
-vmware-tray.exe (3488)
+vmware-tray.exe (3404)
     path: C:\Program Files\VMware\VMware Workstation\vmware-tray.exe
     company:  VMware, Inc.
     product:  VMware Workstation
     filedesc: VMware Tray Process
     filever:  9.0.2.35902
     prodver:  9.0.2.35902
-jusched.exe (1732)
+jusched.exe (3500)
     path: C:\Program Files\Common Files\Java\Java Update\jusched.exe
     company:  Oracle Corporation
     product:  Java(TM) Platform SE Auto Updater
     filedesc: Java(TM) Update Scheduler
     filever:  2.1.9.4
     prodver:  2.1.9.4
-ISCertD_abchina.exe (2908)
+ISCertD_abchina.exe (3508)
     path: C:\Program Files\95599 Certificate Tools\FEITIAN extend key\ISCertD_abchina.exe
     company:  Feitian Technologies Co., Ltd.
     product:  KBao certificate registration program of Agricultural Bank of China
     filedesc: KBao certificate registration program of Agricultural Bank of China
-    filever:  2.0.13.621
-    prodver:  2.0.13.621
-iTunesHelper.exe (3916)
+    filever:  2.0.13.808
+    prodver:  2.0.13.808
+iTunesHelper.exe (3524)
     path: C:\Program Files\iTunes\iTunesHelper.exe
     company:  Apple Inc.
     product:  iTunes
     filedesc: iTunesHelper
     filever:  11.1.0.126
     prodver:  11.1.0.126
-SGImeGuard.exe (3896)
+SGImeGuard.exe (3556)
     path: C:\Program Files\SogouInput\Components\AddressSearch\1.0.0.1233\SGImeGuard.exe
     company:  Sogou.com Inc.
     product:  搜狗输入法
     filedesc: SGImeGuard Application
     filever:  1.0.0.1233
     prodver:  1.0.0.1233
-IAStorIcon.exe (2580)
+QQPMDaemon.exe (3604)
+    path: C:\Program Files\Tencent\QQPhoneManager\QQPMDaemon.exe
+    company:  腾讯公司
+    product:  腾讯手机管家
+    filedesc: 腾讯手机管家服务程序
+    filever:  2.2.100.172
+    prodver:  2.2.100.172
+nvtray.exe (3796)
+    path: C:\Program Files\NVIDIA Corporation\Display\nvtray.exe
+    company:  NVIDIA Corporation
+    product:  NVIDIA Settings
+    filedesc: NVIDIA Settings
+    filever:  7.17.12.9696
+    prodver:  7.17.12.9696
+tadb.exe (2176)
+    path: C:\Program Files\Tencent\QQPhoneManager\tadb.exe
+    company:  
+    product:  
+    filedesc: 
+    filever:  0.0.0.0
+    prodver:  0.0.0.0
+ThunderMobilePlatform.exe (3792)
+    path: C:\Program Files\Thunder Network\Thunder\Program\ThunderMobilePlatform.exe
+    company:  迅雷
+    product:  迅雷移动设备数据传输通道
+    filedesc: 迅雷旗下各软件共用的移动设备数据传输通道
+    filever:  1.0.1.308
+    prodver:  1.0.1.308
+IAStorIcon.exe (6068)
     path: C:\Program Files\Intel\Intel(R) Rapid Storage Technology\IAStorIcon.exe
     company:  Intel Corporation
     product:  IAStorIcon
     filedesc: IAStorIcon
     filever:  11.7.0.1013
     prodver:  11.7.0.1013
-Skype.exe (2344)
-    path: C:\Program Files\Skype\Phone\Skype.exe
-    company:  Skype Technologies S.A.
-    product:  Skype
-    filedesc: TOM-Skype
-    filever:  5.10.4.18
-    prodver:  5.10.0.0
-explorer.exe (5636)
-    path: C:\Windows\explorer.exe
-    company:  Microsoft Corporation
-    product:  Microsoft? Windows? Operating System
-    filedesc: Windows Explorer
-    filever:  6.1.7601.17567
-    prodver:  6.1.7601.17567
-UnityBugReporter.exe (4232)
+AlipaySafeTran.exe (6124)
+    path: C:\Program Files\alipay\SafeTransaction\AlipaySafeTran.exe
+    company:  Alipay Inc. 
+    product:  SafeTransaction
+    filedesc: AlipaySafeTran
+    filever:  1.1.0.1
+    prodver:  4.2.1.0
+UnityBugReporter.exe (5024)
     path: D:\Program Files\Unity4.2.0\Editor\UnityBugReporter.exe
     company:  Unity Technologies ApS
     product:  Unity Bug Reporter
