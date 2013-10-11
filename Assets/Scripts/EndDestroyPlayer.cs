@@ -15,5 +15,6 @@ public class EndDestroyPlayer : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider c){
 		Destroy(c.gameObject);
+		Application.LoadLevel("LineGraph");
 	}
 }

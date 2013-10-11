@@ -21,6 +21,7 @@ public class CollectData : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		StatusKeeper.LEVEL = level;
 		NSFileWriter.InitFile(level);
 		NSFileWriter.Write(ThinkGearDataController.EFF_BASELINE,ThinkGearDataController.FAMIL_BASELINE);
 	}

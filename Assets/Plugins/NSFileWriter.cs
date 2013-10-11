@@ -17,7 +17,7 @@ public class NSFileWriter : MonoBehaviour {
 		if(Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor){
 			file = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\MazeData\\" + level;
 			Directory.CreateDirectory(file);
-			file = Path.Combine(file,time + "_MentalEffort_Familiarity.csv");
+			file = Path.Combine(file,time + ".csv");
 			streamWriter = File.CreateText(file);
 			streamWriter.WriteLine("Time,CurrentMentalEffort,CurrentTaskFamiliarity");
 		}
