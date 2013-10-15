@@ -18,6 +18,7 @@ public class DrawLineGraph : MonoBehaviour {
 	ArrayList eff_DataArrays;
 	ArrayList fam_DataArrays;
 	ArrayList color_Arrays;
+	ArrayList label_Arrays;
 	
 	float positionXMax = 10.0f;
 	float positionXMin = -10.0f;
@@ -34,6 +35,8 @@ public class DrawLineGraph : MonoBehaviour {
 		eff_DataArrays = new ArrayList();
 		fam_DataArrays = new ArrayList();
 		color_Arrays = new ArrayList();
+		label_Arrays = new ArrayList();
+		
 		xLength = positionXMax - positionXMin;
 		
 		gridComponet = grid.gameObject.GetComponent<UIGrid>();
@@ -46,16 +49,35 @@ public class DrawLineGraph : MonoBehaviour {
 	void Start () {
 		folderPath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\MazeData\\" + StatusKeeper.LEVEL;
 		string[] files = Directory.GetFiles(folderPath);
+		color_Arrays.Add(new Color(1.0f,0,0,1.0f));
+		//color_Arrays.Add(new Color(1.0f,0.647f,0,1.0f));
+		color_Arrays.Add(new Color(1.0f,1.0f,0,1.0f));
+		color_Arrays.Add(new Color(0.0f,1,0,1.0f));
+		
+		color_Arrays.Add(new Color(0.0f,0.498f,1.0f,1.0f));
+		//color_Arrays.Add(new Color(0.0f,0,1.0f,1.0f));
+		color_Arrays.Add(new Color(0.545f,0,1.0f,1.0f));
+		//color_Arrays.Add(new Color(1.0f,0,0.502f,1.0f));
+		
 		//NSDebug.Log(folderPath);
 		foreach(string file in files){
 			//NSDebug.Log(file);
 			ReadParse2Array(file);
 			
+			string dateWord = file.Substring(file.Length-23,19);
+			label_Arrays.Add(dateWord);
+			
 			Color c = new Color(UnityEngine.Random.Range(0.0f,1.0f),0.2f,UnityEngine.Random.Range(0.0f,1.0f),1.0f);
 			color_Arrays.Add(c);
 			
-			DrawLabel(file,c);
+			//DrawLabel(file,c);
 			
+		}
+		
+		for(int i = 0; i < label_Arrays.Count; i++){
+			string s = (string)label_Arrays[i];
+			Color c = (Color)color_Arrays[i];
+			DrawLabel(s,c);
 		}
 		
 		//Debug.Log(eff_DataArrays.Count);
@@ -65,8 +87,9 @@ public class DrawLineGraph : MonoBehaviour {
 		
 	}
 	
-	void DrawLabel(string path,Color c){
-		string dateWord = path.Substring(path.Length-23,19);
+	void DrawLabel(string dateWord,Color c){
+		//string dateWord = path.Substring(file.Length-23,19);
+
 		//Debug.Log(dateWord);
 		
 		GameObject go = new GameObject("Label");
@@ -169,7 +192,7 @@ public class DrawLineGraph : MonoBehaviour {
 			LineRenderer lineRen = go.AddComponent<LineRenderer>();
 			lineRen.material = new Material(Shader.Find("Particles/Additive"));
 			Color c = (Color)colorList[i];
-			go.renderer.material.SetColor("_TintColor",c);
+			//go.renderer.material.SetColor("_TintColor",c);
 			lineRen.SetColors(c,c);
 			lineRen.SetWidth(0.1f,0.1f);
 			
