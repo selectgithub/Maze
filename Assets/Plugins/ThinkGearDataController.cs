@@ -40,7 +40,10 @@ public class ThinkGearDataController : MonoBehaviour {
 	void Awake(){
 		connector = new NeuroSky.ThinkGear.Connector();
 	}
-	
+	public void Connect(){
+		connector.ConnectScan("COM3");
+		NSDebug.Log("ConnectScan COM3");
+	}
 	// Use this for initialization
 	void Start () {
 			if(connector == null){
@@ -52,8 +55,8 @@ public class ThinkGearDataController : MonoBehaviour {
 
             // Scan for devices
             // add this one to scan 1st
-            connector.ConnectScan("COM3");
-			NSDebug.Log("ConnectScan COM3");
+            //connector.ConnectScan("COM3");
+			//NSDebug.Log("ConnectScan COM3");
 
             //start the mental effort and task familiarity calculations
 
@@ -101,8 +104,10 @@ public class ThinkGearDataController : MonoBehaviour {
 			Code type = row.Type;
 			switch(type){
 			case Code.PoorSignal:
-					Debug.Log("PQ:"+row.Data[0]);
-					
+					//Debug.Log("PQ:"+row.Data[0]);
+					if(PoorSignalEvent != null){
+						PoorSignalEvent(row.Data[0]);
+					}
 				break;
 			case Code.Raw:
 					//Debug.Log("Raw");

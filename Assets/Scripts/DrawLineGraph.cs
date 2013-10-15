@@ -8,10 +8,11 @@ public class DrawLineGraph : MonoBehaviour {
 	public Transform grid;
 	public Transform label;
 	
-	public GameObject fButton;
-	public GameObject mButton;
-	
 	public UIFont font;
+	
+	UIGrid gridComponet;
+	
+	LineGraphUIController uiController;
 	
 	string folderPath;
 	ArrayList eff_DataArrays;
@@ -34,18 +35,23 @@ public class DrawLineGraph : MonoBehaviour {
 		fam_DataArrays = new ArrayList();
 		color_Arrays = new ArrayList();
 		xLength = positionXMax - positionXMin;
+		
+		gridComponet = grid.gameObject.GetComponent<UIGrid>();
+		uiController = GameObject.Find("Panel").GetComponent<LineGraphUIController>();
+		uiController.FamiButtonActived += OnFamiButtonActived;
+		uiController.EffoButtonActived += OnEffoButtonActived;
 	}
 	
 	// Use this for initialization
 	void Start () {
 		folderPath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\MazeData\\" + StatusKeeper.LEVEL;
 		string[] files = Directory.GetFiles(folderPath);
-		//Debug.Log(folderPath);
+		//NSDebug.Log(folderPath);
 		foreach(string file in files){
-			//Debug.Log(file);
+			//NSDebug.Log(file);
 			ReadParse2Array(file);
 			
-			Color c = new Color(UnityEngine.Random.Range(0.0f,1.0f),UnityEngine.Random.Range(0.0f,1.0f),UnityEngine.Random.Range(0.0f,1.0f),1.0f);
+			Color c = new Color(UnityEngine.Random.Range(0.0f,1.0f),0.2f,UnityEngine.Random.Range(0.0f,1.0f),1.0f);
 			color_Arrays.Add(c);
 			
 			DrawLabel(file,c);
@@ -54,7 +60,7 @@ public class DrawLineGraph : MonoBehaviour {
 		
 		//Debug.Log(eff_DataArrays.Count);
 		//Debug.Log(fam_DataArrays.Count);
-
+		gridComponet.Reposition();
 		DrawFAMLine();
 		
 	}
@@ -75,19 +81,23 @@ public class DrawLineGraph : MonoBehaviour {
 		theLabel.color = c;
 	}
 	
+	void OnFamiButtonActived(){
+		DrawEFFLine();
+	}
+	
+	void OnEffoButtonActived(){
+		DrawFAMLine();
+	}
+	
 	void DrawEFFLine(){
 		DestroyGOWithTag("line");
 		CalcMaxMinCount(eff_DataArrays);
 		DrawLine(eff_DataArrays,color_Arrays);
-		mButton.SetActive(false);
-		fButton.SetActive(true);
 	}
 	void DrawFAMLine(){
 		DestroyGOWithTag("line");
 		CalcMaxMinCount(fam_DataArrays);
 		DrawLine(fam_DataArrays,color_Arrays);
-		fButton.SetActive(false);
-		mButton.SetActive(true);
 	}
 	
 	void ReadParse2Array(string filePath){
@@ -101,8 +111,8 @@ public class DrawLineGraph : MonoBehaviour {
 			}
 			//Debug.Log(line);
 			string[] words = line.Split(',');
-			//Debug.Log(words[1]);
-			//Debug.Log(words[2]);
+			//NSDebug.Log("Word1"+words[1]);
+			//NSDebug.Log("Word2"+words[2]);
 			effArray.Add(words[1]);
 			famArray.Add(words[2]);
 		}
@@ -141,18 +151,21 @@ public class DrawLineGraph : MonoBehaviour {
 			}//end for "j"
 			
 		}
+		//NSDebug.Log("Max Count:" + maxCount);
+		//NSDebug.Log("Y Max" + valueYMax);
+		//NSDebug.Log("Y Min" + valueYMin);
 	}
 	
 	void DrawLine(ArrayList dataList,ArrayList colorList){
 		string str;//
 		float value;//
-		
 		float afterMoveMax = valueYMax - ((valueYMax + valueYMin)/2);
 		float scaleRate = positionYMax / afterMoveMax;
 				
 		for(int i = 0; i < dataList.Count; i++){
 			GameObject go = new GameObject("FMLine" + i);
 			go.tag = "line";
+			go.layer = 9;// 0 is "3DLayer" layer
 			LineRenderer lineRen = go.AddComponent<LineRenderer>();
 			lineRen.material = new Material(Shader.Find("Particles/Additive"));
 			Color c = (Color)colorList[i];
@@ -171,14 +184,14 @@ public class DrawLineGraph : MonoBehaviour {
 				value = value - ((valueYMax + valueYMin)/2); //move
 				value = scaleRate * value; // scale
 				
-
+				//NSDebug.Log("DrawLine:"+value);
 				Vector3 pos = new Vector3(positionXMin + j * (xLength/(maxCount - 1)),value,0);
 				lineRen.SetPosition(j,pos);
 				
 			}//end for "j"
 
 		}
-	}
+	}//end DrawLine
 	
 	void DestroyGOWithTag(string theTag){
 		GameObject[] gos = GameObject.FindGameObjectsWithTag(theTag);

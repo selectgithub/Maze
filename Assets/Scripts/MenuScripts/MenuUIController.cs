@@ -13,6 +13,10 @@ public class MenuUIController : MonoBehaviour {
 	
 	}
 	
+	void OnHelpButtonClicked(){
+		Application.LoadLevel("Help");
+	}
+	
 	void OnLevel1Clicked(){
 		Application.LoadLevel("C");
 	}

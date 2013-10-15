@@ -8,15 +8,15 @@ public class Loader : MonoBehaviour {
 	bool isNewFamil = false;
 	
 	void Awake(){
-		dataController = GameObject.Find("ThinkGearDataController").GetComponent<ThinkGearDataController>();
-		dataController.MentalEffortEvent += OnMentalEffortReceived;
-		dataController.TaskFamiliarityEvent += OnTaskFamiliarityReceived;
+		//dataController = GameObject.Find("ThinkGearDataController").GetComponent<ThinkGearDataController>();
+		//dataController.MentalEffortEvent += OnMentalEffortReceived;
+		//dataController.TaskFamiliarityEvent += OnTaskFamiliarityReceived;
 	}
 	
 	// Use this for initialization
 	void Start () {
 	
-		//Invoke("Load",5.0f);
+		Invoke("Load",5.0f);
 	}
 	
 	// Update is called once per frame
@@ -36,6 +36,6 @@ public class Loader : MonoBehaviour {
 	}
 	
 	void Load(){
-		Application.LoadLevel("Menu");
+		Application.LoadLevel("BaseLine");
 	}
 }
