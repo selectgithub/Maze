@@ -2,7 +2,16 @@
 using System.Collections;
 
 public class EndDestroyPlayer : MonoBehaviour {
+	
+	public delegate void FinishLevelDelegate();
+	
+	public event FinishLevelDelegate FinishLevelEvent;
+	
 	public GameObject congrats;
+	
+	void Awake (){
+		gameObject.tag = "destroyer";	
+	}
 	
 	// Use this for initialization
 	void Start () {
@@ -18,5 +27,8 @@ public class EndDestroyPlayer : MonoBehaviour {
 		Destroy(c.gameObject);
 		//Application.LoadLevel("LineGraph");
 		TweenScale.Begin(congrats,0.3f,new Vector3(1,1,1));
+		if(FinishLevelEvent != null){
+			FinishLevelEvent();
+		}
 	}
 }

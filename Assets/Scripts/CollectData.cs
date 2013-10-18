@@ -7,6 +7,8 @@ public class CollectData : MonoBehaviour {
 	
 	ThinkGearDataController dataController;
 	
+	EndDestroyPlayer destroyPlayer;
+	
 	double mental,mentalChange,famil,familChange;
 	bool isNewMental = false;
 	bool isNewFamil = false;
@@ -17,6 +19,9 @@ public class CollectData : MonoBehaviour {
 		//dataController.MentalEffortChangeEvent += OnMentalEffortChangeReceived;
 		dataController.TaskFamiliarityEvent += OnTaskFamiliarityReceived;
 		//dataController.TaskFamiliarityChangeEvent += OnTaskFamiliarityChangeReceived;
+		
+		destroyPlayer = GameObject.FindGameObjectWithTag("destroyer").GetComponent<EndDestroyPlayer>();
+		destroyPlayer.FinishLevelEvent += OnDestroyPlayer;
 	}
 
 	// Use this for initialization
@@ -51,12 +56,16 @@ public class CollectData : MonoBehaviour {
 		familChange = value;
 	}
 	
-	void OnDestroy(){
+	void OnDestroyPlayer(){
 		dataController.MentalEffortEvent -= OnMentalEffortReceived;
 		//dataController.MentalEffortChangeEvent -= OnMentalEffortChangeReceived;
 		dataController.TaskFamiliarityEvent -= OnTaskFamiliarityReceived;
 		//dataController.TaskFamiliarityChangeEvent -= OnTaskFamiliarityChangeReceived;
 		NSFileWriter.CloseFile();
+	}
+	
+	void OnDestroy(){
+		
 	}
 	
 }
